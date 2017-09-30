@@ -12,7 +12,7 @@ function randomLetter() {
 
 function resetGame() {
 	userGuess = 9;
-    $("#guessesLeft").text("Current Guesses (" + userGuess + " remaining):");
+    $("#guessesLeft").text("Current Guesses (" + userGuess + " remaining)");
     $("#guessesMade").addClass("filler");
     $("#guessesMade").text("(none)");
     computerChoice = randomLetter();
@@ -39,7 +39,7 @@ $(document).keyup(function(e) {
 	        	default:
 	            	userGuess = userGuess - 1;
 	            	if (userGuess != 0) {
-	            		$("#guessesLeft").text("Current Guesses (" + userGuess + " remaining):");
+	            		$("#guessesLeft").text("Current Guesses (" + userGuess + " remaining)");
 	            		if (userGuess == 8) {
 	            			$("#guessesMade").text(String.fromCharCode(event.keyCode));
 	            			$("#guessesMade").removeClass("filler");
