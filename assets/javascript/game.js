@@ -10,7 +10,7 @@ $(function(){
   		max = Math.floor(90);
   		return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
-		
+
 	function resetGame() {
 		userGuess = 9;
     	$("#guessesLeft").text("Current Guesses (" + userGuess + " remaining)");
@@ -24,7 +24,7 @@ $(function(){
         if (event.keyCode >= 65 && event.keyCode <= 90) {
 	        switch (e.which) {
 	        	case computerChoice:
-	          		userWin = userWin + 1;
+	          		userWin++;
 	            	$("#wins").text(userWin);
 	            	if (userWin == 1) {
 	            		$("#guessWins").text(userChoice);
@@ -36,7 +36,7 @@ $(function(){
 	            	resetGame();
 	            	break;
 	        	default:
-	            	userGuess = userGuess - 1;
+	            	userGuess--;
 	            	if (userGuess != 0) {
 	            		$("#guessesLeft").text("Current Guesses (" + userGuess + " remaining)");
 	            		if (userGuess == 8) {
@@ -48,7 +48,7 @@ $(function(){
 	            		}
 	            	}
 	            	else {
-	            		userLoss = userLoss + 1;
+	            		userLoss++;
 	            		$("#losses").text(userLoss);
 	            		resetGame();
 	            	}
