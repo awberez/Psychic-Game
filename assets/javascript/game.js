@@ -21,17 +21,18 @@ function resetGame() {
 var computerChoice = randomLetter();
 
 $(document).keyup(function(e) {
+		var userChoice = String.fromCharCode(event.keyCode);
         if (event.keyCode >= 65 && event.keyCode <= 90) {
 	        switch (e.which) {
 	        	case computerChoice:
 	          		userWin = userWin + 1;
 	            	$("#wins").text(userWin);
 	            	if (userWin == 1) {
-	            		$("#guessWins").text(String.fromCharCode(event.keyCode));
+	            		$("#guessWins").text(userChoice);
 	            		$("#guessWins").removeClass("filler");
 	            	}
 	            	else {
-	            		$("#guessWins").append(", " + String.fromCharCode(event.keyCode));
+	            		$("#guessWins").append(", " + userChoice);
 	            	}
 	            	resetGame();
 	            	break;
@@ -40,11 +41,11 @@ $(document).keyup(function(e) {
 	            	if (userGuess != 0) {
 	            		$("#guessesLeft").text("Current Guesses (" + userGuess + " remaining)");
 	            		if (userGuess == 8) {
-	            			$("#guessesMade").text(String.fromCharCode(event.keyCode));
+	            			$("#guessesMade").text(userChoice);
 	            			$("#guessesMade").removeClass("filler");
 	            		}
 	            		else {
-	            			$("#guessesMade").append(", " + String.fromCharCode(event.keyCode));
+	            			$("#guessesMade").append(", " + userChoice);
 	            		}
 	            	}
 	            	else {
