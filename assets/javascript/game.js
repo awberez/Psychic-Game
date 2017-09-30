@@ -14,6 +14,7 @@ function resetGame() {
 	userGuess = 9;
     $("#guessesLeft").text("Current Guesses (" + userGuess + " remaining):");
     $("#guessesMade").text("(none)");
+    $("#guessesMade").addClass("filler");
     computerChoice = randomLetter();
 }
 
@@ -30,6 +31,7 @@ $(document).keyup(function(e) {
             	else {
             		$("#wins").attr("value", 1);
             		$("#guessWins").text(String.fromCharCode(event.keyCode));
+            		$("#guessWins").removeClass("filler");
             	}
             	resetGame();
             	break;
@@ -44,6 +46,7 @@ $(document).keyup(function(e) {
             		}
             		if (userGuess == 8) {
             			$("#guessesMade").text(String.fromCharCode(event.keyCode));
+            			$("#guessesMade").removeClass("filler");
             		}
             		else {
             			$("#guessesMade").append(", " + String.fromCharCode(event.keyCode));
