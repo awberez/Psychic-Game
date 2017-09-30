@@ -21,38 +21,40 @@ function resetGame() {
 var computerChoice = randomLetter();
 
 $(document).keyup(function(e) {
-        switch (e.which) {
-        	case computerChoice:
-          		userWin = userWin + 1;
-            	$("#wins").text(userWin);
-            	if ($("#wins").attr("value") == 1) {
-            		$("#guessWins").append(", " + String.fromCharCode(event.keyCode));
-            	}
-            	else {
-            		$("#wins").attr("value", 1);
-            		$("#guessWins").text(String.fromCharCode(event.keyCode));
-            		$("#guessWins").removeClass("filler");
-            	}
-            	resetGame();
-            	break;
-        	default:
-            	userGuess = userGuess - 1;
-            	if (userGuess != 0) {
-            		$("#guessesLeft").text("Current Guesses (" + userGuess + " remaining):");
-            		if (userGuess == 8) {
-            			$("#guessesMade").text(String.fromCharCode(event.keyCode));
-            			$("#guessesMade").removeClass("filler");
-            		}
-            		else {
-            			$("#guessesMade").append(", " + String.fromCharCode(event.keyCode));
-            		}
-            	}
-            	else {
-            		userLoss = userLoss + 1;
-            		$("#losses").text(userLoss);
-            		resetGame();
-            	}
-            	break;
-        }
+        if (event.keyCode >= 65 && event.keyCode <= 90) {
+	        switch (e.which) {
+	        	case computerChoice:
+	          		userWin = userWin + 1;
+	            	$("#wins").text(userWin);
+	            	if ($("#wins").attr("value") == 1) {
+	            		$("#guessWins").append(", " + String.fromCharCode(event.keyCode));
+	            	}
+	            	else {
+	            		$("#wins").attr("value", 1);
+	            		$("#guessWins").text(String.fromCharCode(event.keyCode));
+	            		$("#guessWins").removeClass("filler");
+	            	}
+	            	resetGame();
+	            	break;
+	        	default:
+	            	userGuess = userGuess - 1;
+	            	if (userGuess != 0) {
+	            		$("#guessesLeft").text("Current Guesses (" + userGuess + " remaining):");
+	            		if (userGuess == 8) {
+	            			$("#guessesMade").text(String.fromCharCode(event.keyCode));
+	            			$("#guessesMade").removeClass("filler");
+	            		}
+	            		else {
+	            			$("#guessesMade").append(", " + String.fromCharCode(event.keyCode));
+	            		}
+	            	}
+	            	else {
+	            		userLoss = userLoss + 1;
+	            		$("#losses").text(userLoss);
+	            		resetGame();
+	            	}
+	            	break;
+	        }
+    	}
     });
 });
