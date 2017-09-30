@@ -14,6 +14,7 @@ function resetGame() {
 	userGuess = 9;
     $("#guessesLeft").text("Current Guesses (" + userGuess + " remaining):");
     $("#guessesMade").text("(none)");
+    computerChoice = randomLetter();
 }
 
 var computerChoice = randomLetter();
@@ -31,7 +32,6 @@ $(document).keyup(function(e) {
             		$("#guessWins").text(String.fromCharCode(event.keyCode));
             	}
             	resetGame();
-            	computerChoice = randomLetter();
             	break;
         	default:
             	userGuess = userGuess - 1;
@@ -53,7 +53,6 @@ $(document).keyup(function(e) {
             		userLoss = userLoss + 1;
             		$("#losses").text(userLoss);
             		resetGame();
-            		computerChoice = randomLetter();
             	}
             	break;
         }
