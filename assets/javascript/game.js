@@ -3,6 +3,7 @@ $(function(){
 var userWin = 0
 var userLoss = 0
 var userGuess = 9
+var computerChoice = randomLetter();
 
 function randomLetter() {
   min = Math.ceil(65);
@@ -17,8 +18,6 @@ function resetGame() {
     $("#guessesMade").text("(none)");
     computerChoice = randomLetter();
 }
-
-var computerChoice = randomLetter();
 
 $(document).keyup(function(e) {
 		var userChoice = String.fromCharCode(event.keyCode);
