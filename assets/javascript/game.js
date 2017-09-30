@@ -1,25 +1,25 @@
 $(function(){
 
-var userWin = 0
-var userLoss = 0
-var userGuess = 9
-var computerChoice = randomLetter();
+	var userWin = 0
+	var userLoss = 0
+	var userGuess = 9
+	var computerChoice = randomLetter();
 
-function randomLetter() {
-  min = Math.ceil(65);
-  max = Math.floor(90);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+	function randomLetter() {
+  		min = Math.ceil(65);
+  		max = Math.floor(90);
+  		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+		
+	function resetGame() {
+		userGuess = 9;
+    	$("#guessesLeft").text("Current Guesses (" + userGuess + " remaining)");
+    	$("#guessesMade").addClass("filler");
+    	$("#guessesMade").text("(none)");
+    	computerChoice = randomLetter();
+	}
 
-function resetGame() {
-	userGuess = 9;
-    $("#guessesLeft").text("Current Guesses (" + userGuess + " remaining)");
-    $("#guessesMade").addClass("filler");
-    $("#guessesMade").text("(none)");
-    computerChoice = randomLetter();
-}
-
-$(document).keyup(function(e) {
+	$(document).keyup(function(e) {
 		var userChoice = String.fromCharCode(event.keyCode);
         if (event.keyCode >= 65 && event.keyCode <= 90) {
 	        switch (e.which) {
