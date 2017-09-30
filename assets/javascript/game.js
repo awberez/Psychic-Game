@@ -26,13 +26,12 @@ $(document).keyup(function(e) {
 	        	case computerChoice:
 	          		userWin = userWin + 1;
 	            	$("#wins").text(userWin);
-	            	if ($("#wins").attr("value") == 1) {
-	            		$("#guessWins").append(", " + String.fromCharCode(event.keyCode));
-	            	}
-	            	else {
-	            		$("#wins").attr("value", 1);
+	            	if (userWin == 1) {
 	            		$("#guessWins").text(String.fromCharCode(event.keyCode));
 	            		$("#guessWins").removeClass("filler");
+	            	}
+	            	else {
+	            		$("#guessWins").append(", " + String.fromCharCode(event.keyCode));
 	            	}
 	            	resetGame();
 	            	break;
