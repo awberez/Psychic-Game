@@ -83,8 +83,9 @@ button:focus {
 }
 
 .letter-button {
-	width: 35px;
+	width: 30px;
     margin: 5px;
+    padding-left: 1%;
 }
 
 .btn-game { 
