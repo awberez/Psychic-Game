@@ -23,6 +23,11 @@ html {
 	padding-bottom: 0;
 }
 
+.psychic-game {
+	font-family: 'Kaushan Script', cursive;
+	margin-right: 2px;
+}
+
 .jumbotron {
 	margin-top: 30px;
 	border-style: solid;
