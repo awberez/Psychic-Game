@@ -19,6 +19,7 @@ $(function(){
 	}
 
 	function resetGame() {
+		$(".letter-button").removeAttr("disabled");
 		userGuess = 9;
 		lettersGuessed = []
     	$("#guessesLeft").text("Current Guesses (" + userGuess + " remaining)");
@@ -39,11 +40,12 @@ $(function(){
       	}
     });
 
-    $("#mobileKeyboard").on("click", ".letter-button", function() {	
-		  var e = new Event("keyup");
-		  e.keyCode = $(this).attr("data-letter")
-		  e.which = e.keyCode;
-		  document.dispatchEvent(e);
+    $("#mobileKeyboard").on("click", ".letter-button", function() {
+    	$(this).attr("disabled", "disabled")
+		var e = new Event("keyup");
+		e.keyCode = $(this).attr("data-letter")
+		e.which = e.keyCode;
+		document.dispatchEvent(e);
     });
 
 	$(document).keyup(function(e) {
