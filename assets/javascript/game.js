@@ -44,12 +44,12 @@ $(function(){
 
     $("#mobileKeyboard").on("click", ".letter-button", function() {
     	if (userLetters(lettersGuessed, parseInt($(this).attr("data-letter"))) == false) {
+	    	lettersGuessed.push(parseInt($(this).attr("data-letter")));
 	    	$(this).attr("disabled", "disabled")
 			var e = new Event("keyup");
 			e.keyCode = $(this).attr("data-letter")
 			e.which = e.keyCode;
 			document.dispatchEvent(e);
-			lettersGuessed.push(parseInt($(this).attr("data-letter")));
 		}
 		else {
 			$(this).attr("disabled", "disabled");
