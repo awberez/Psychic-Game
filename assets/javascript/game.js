@@ -1,10 +1,10 @@
 $(function(){
 
-	var userWin = 0
-	var userLoss = 0
-	var userGuess = 9
+	var userWin = 0;
+	var userLoss = 0;
+	var userGuess = 9;
 	var computerChoice = randomLetter();
-	var lettersGuessed = []
+	var lettersGuessed = [];
 
 	function randomLetter() {
   		min = Math.ceil(65);
@@ -21,7 +21,7 @@ $(function(){
 	function resetGame() {
 		$(".letter-button").removeAttr("disabled");
 		userGuess = 9;
-		lettersGuessed = []
+		lettersGuessed = [];
     	$("#guessesLeft").text("Current Guesses (" + userGuess + " remaining)");
     	$("#guessesMade").addClass("filler");
     	$("#guessesMade").text("(none)");
@@ -44,9 +44,9 @@ $(function(){
     $("#mobileKeyboard").on("click", ".letter-button", function() {
     	if (userLetters(lettersGuessed, parseInt($(this).attr("data-letter"))) == false) {
 	    	lettersGuessed.push(parseInt($(this).attr("data-letter")));
-	    	$(this).attr("disabled", "disabled")
+	    	$(this).attr("disabled", "disabled");
 			var e = new Event("keyup");
-			e.keyCode = $(this).attr("data-letter")
+			e.keyCode = $(this).attr("data-letter");
 			e.which = e.keyCode;
 			document.dispatchEvent(e);
 		}
